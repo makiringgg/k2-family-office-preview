@@ -1,0 +1,64 @@
+:root { color-scheme:dark; background:#000000; --artwork-width:1440px; --background-top:0px; }
+* { box-sizing:border-box; }
+html, body { margin:0; min-height:100%; background:#000000; }
+.lp { width:100%; max-width:var(--artwork-width); margin-inline:auto; }
+.part { position:relative; margin:0; width:100%; }
+.fv { position:relative; z-index:2; background:#000; }
+.lower { position:relative; isolation:isolate; clip-path:inset(0); }
+.fixed-background {
+  position:fixed;
+  top:var(--background-top);
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:var(--background-width, min(100%,var(--artwork-width)));
+  background:#000 url("background-dark.519d9d342e.webp") center var(--background-y, 0px) / 100% auto no-repeat;
+  pointer-events:none;
+  z-index:-1;
+}
+.lower-content { position:relative; }
+.image-layer { position:absolute; margin:0; padding:0; }
+.image-layer img { display:block; width:100%; height:100%; }
+.cta-layer { border:0; background:transparent; opacity:1; appearance:none; }
+.cta-layer:disabled { cursor:default; }
+.cta-layer:focus-visible { outline:2px solid #f8dfac; outline-offset:4px; }
+/* Local font sources are used only when present on the viewer's device. */
+@font-face {
+  font-family: "K2 Ryumin";
+  src: local("RyuminPro-Bold"), local("A-OTF Ryumin Pro B-KL"), local("RyuminPr5-Bold"), local("RyuminStd-Bold-KS"), local("RyuminStd-Bold-KO"), local("A-OTF Ryumin Pr6N B"), local("A-OTF-RyuminPr6N-Bold");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "K2 Hiragino W5";
+  src: local("HiraginoSans-W5"), local("Hiragino Kaku Gothic Std W5"), local("HiraKakuStd-W5");
+  font-weight: 500;
+  font-display: swap;
+}
+.lp { container-type:inline-size; }
+.cta-layer { cursor:pointer; }
+.cta-layer .cta-hover { position:absolute; inset:0; opacity:0; }
+@media (hover:hover) {
+  .cta-layer:hover .cta-hover { opacity:1; }
+}
+.cta-layer:focus-visible .cta-hover { opacity:1; }
+.faq-art img { display:block; width:100%; height:auto; }
+.faq-body { background:rgba(230,216,197,0.6980392157); padding:17px 0 24px; color:#382314; }
+.faq-list { width:62.5%; margin:0 auto; }
+.faq-item { border-top:1px solid rgba(56,35,20,.78); }
+.faq-item:last-child { border-bottom:1px solid rgba(56,35,20,.78); }
+.faq-item summary { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:53px; padding:10px 0; cursor:pointer; list-style:none; font-family:"K2 Ryumin","A-OTF Ryumin Pr6N","A-OTF Ryumin Pro","A-OTF Ryumin Std","ヒラギノ明朝 ProN","Hiragino Mincho ProN","Yu Mincho",serif; font-size:22px; font-weight:700; line-height:1.5; }
+.faq-item summary::-webkit-details-marker { display:none; }
+.faq-item summary:focus-visible { outline:2px solid #382314; outline-offset:4px; }
+.faq-icon { display:block; position:relative; flex:none; width:22px; height:22px; margin-right:3px; }
+.faq-icon::before,.faq-icon::after { content:""; position:absolute; background:currentColor; }
+.faq-icon::before { width:100%; height:1.5px; top:calc(50% - .75px); }
+.faq-icon::after { height:100%; width:1.5px; left:calc(50% - .75px); }
+.faq-item[open] .faq-icon::after { display:none; }
+.faq-answer { padding:10px 30px 28px; font-family:"K2 Hiragino W5","Hiragino Sans","ヒラギノ角ゴシック","Hiragino Kaku Gothic ProN",sans-serif; font-size:20px; font-weight:500; line-height:40px; overflow-wrap:anywhere; }
+/* Match the PC artwork scale on narrow preview windows. */
+@container (max-width:1100px) {
+  .faq-list { width:80%; }
+  .faq-item summary { font-size:clamp(16px,2cqw,22px); }
+  .faq-answer { font-size:clamp(15px,1.82cqw,20px); line-height:2; padding-inline:clamp(12px,2.7cqw,30px); }
+}
