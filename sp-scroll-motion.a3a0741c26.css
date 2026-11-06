@@ -1,0 +1,9 @@
+@media(max-width:767px){
+  .sp-layout .scroll-pending{opacity:0}
+  .sp-layout [data-scroll-motion]{transform-origin:50% 55%}
+  .sp-diagram-motion{position:relative;width:100%;aspect-ratio:750/479}
+  .sp-diagram-motion>img{position:absolute;inset:0;width:100%;height:100%;display:block}
+}
+@media(prefers-reduced-motion:reduce){
+  .sp-layout .scroll-pending{opacity:1}
+}
