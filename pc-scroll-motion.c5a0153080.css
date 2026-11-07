@@ -1,0 +1,7 @@
+@media(min-width:768px){
+.desktop-layout .scroll-pending{opacity:0}
+.desktop-layout [data-scroll-motion]{transform-origin:50% 55%}
+.pc-diagram-motion>div{position:absolute;inset:0}
+.pc-diagram-motion img{display:block;width:100%;height:100%}
+}
+@media(prefers-reduced-motion:reduce){.desktop-layout .scroll-pending{opacity:1}}
